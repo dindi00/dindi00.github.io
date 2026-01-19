@@ -13,7 +13,9 @@
 
   <!-- Font Awesome (GitHub icon) -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-uM97GQ9Yb7OZc1m7nZ6p1dB1jRgvS1K8Qj3x6FBhH2F3r0U3mQ3vXvG0J0l7vGJ9Vg3wD8jQ1Z4r8b7oA3+9xg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-uM97GQ9Yb7OZc1m7nZ6p1dB1jRgvS1K8Qj3x6FBhH2F3r0U3mQ3vXvG0J0l7vGJ9Vg3wD8jQ1Z4r8b7oA3+9xg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
     @font-face {
@@ -44,14 +46,21 @@
       position: fixed !important; inset: 0 !important; z-index: 0 !important;
     }
     /* Splash */
-    .splash{position:fixed;inset:0;z-index:2;display:grid;place-items:center;
-      background:linear-gradient(180deg,#120526,#0b0a19);transition:opacity .35s}
+    .splash{
+      position:fixed; inset:0; z-index:2; display:grid; place-items:center;
+      background:linear-gradient(180deg,#120526,#0b0a19);
+      transition:opacity .35s
+    }
     .splash.hide{opacity:0;pointer-events:none}
-    .splash-inner{display:grid;place-items:center;gap:18px;text-align:center;animation:float 3s ease-in-out infinite}
+    .splash-inner{
+      display:grid; place-items:center; gap:18px; text-align:center;
+      animation:float 3s ease-in-out infinite
+    }
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
     .splash img{width:min(220px,40vw);filter:drop-shadow(0 10px 40px rgba(255,0,128,.25))}
     .welcome{color:var(--pink);letter-spacing:.12em;text-transform:uppercase;font-weight:700;font-size:clamp(14px,2.6vw,22px);text-shadow:0 0 18px rgba(255,0,128,.35)}
     .skip{position:absolute;bottom:24px;opacity:.6;font-size:12px;color:#fff}
+
     /* Main layout */
     .page { position:relative; z-index:1; min-height:100vh; display:flex; flex-direction:column; gap:32px; padding:24px; }
     .title-wrap{display:grid;place-items:center}
@@ -61,8 +70,11 @@
       box-shadow:0 0 0 1px rgba(255,255,255,.04) inset, 0 10px 40px var(--glow), 0 0 60px -10px var(--glow);
       backdrop-filter:blur(6px)
     }
-    h1{margin:0;text-transform:uppercase;letter-spacing:.08em;font-weight:700;
-      font-size:clamp(28px,5vw,56px);line-height:1.1;text-shadow:0 2px 12px rgba(255,0,128,.35)}
+    h1{
+      margin:0;text-transform:uppercase;letter-spacing:.08em;font-weight:700;
+      font-size:clamp(28px,5vw,56px);line-height:1.1;
+      text-shadow:0 2px 12px rgba(255,0,128,.35)
+    }
     /* Panel */
     .panel{
       width:min(1100px,92vw); margin:0 auto;
@@ -79,6 +91,7 @@
       box-shadow:0 10px 40px rgba(255,0,128,.25);
     }
     .panel-head h2{margin:0; font-size:clamp(16px,3.2vw,28px); letter-spacing:.14em; text-transform:uppercase}
+
     /* Grid of app cards */
     .app-grid{
       display:grid; gap:16px;
@@ -86,6 +99,7 @@
     }
     @media (max-width: 980px){ .app-grid{ grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px){ .app-grid{ grid-template-columns: 1fr; } }
+
     .app-card{
       display:flex; align-items:center; justify-content:center;
       height:92px; border-radius:16px;
@@ -94,8 +108,11 @@
       box-shadow: 0 12px 40px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.02) inset;
       transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
     }
-    .app-card:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.22);
-      box-shadow: 0 18px 60px rgba(255,0,128,.25); }
+    .app-card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.22);
+      box-shadow: 0 18px 60px rgba(255,0,128,.25);
+    }
     .app-card img{ max-height:44px; max-width:70%; object-fit:contain; filter: drop-shadow(0 2px 10px rgba(0,0,0,.4)); }
 
     /* Footer */
@@ -107,6 +124,7 @@
     .page.show{opacity:1}
   </style>
 </head>
+
 <body>
   <!-- Background particles container -->
   <div id="particles-js" aria-hidden="true"></div>
@@ -123,112 +141,106 @@
   <!-- Main -->
   <main class="page" id="page" role="main">
     <div class="title-wrap" aria-labelledby="site-title">
-
-      <div class="title-pill"><h1 id="site-title">Dindi Central Web Page</h1></div>
+      <div class="title-pill">
+        <h1 id="site-title">Dindi Central Web Page</h1>
+      </div>
     </div>
 
     <!-- Websites panel -->
     <section class="panel" aria-labelledby="websites-title">
       <div class="panel-head"><h2 id="websites-title">Websites</h2></div>
       <div class="app-grid" role="list">
-        <!-- FIXED: properly closed anchor tag -->
         <a class="app-card" role="listitem" href="https://borneotechies.com" target="_blank" rel="noopener noreferrer" aria-label="Open BorneoTechies in a new tab">
-          <img src="images/btechies.png" alt="bt logo" loading="lazy">
+          <img src="images/btechies.png" alt="Borneo Techies website" loading="lazy">
         </a>
 
         <a class="app-card" role="listitem" href="https://cfrtradio.space" target="_blank" rel="noopener noreferrer" aria-label="Open CFRTRADIO in a new tab">
-          <img src="images/cfrt.png" alt="cfrt logo" loading="lazy">
-        </a>
-        
-        <a class="app-card" role="listitem" href="https://borneotechies.biz" target="_blank" rel="noopener noreferrer" aria-label="Open BorneoTech in a new tab">
-          <img src="images/btechies.png" alt="btech logo" loading="lazy">
+          <img src="images/cfrt.png" alt="CFRTRADIO" loading="lazy">
         </a>
 
+        <a class="app-card" role="listitem" href="https://borneotechies.biz" target="_blank" rel="noopener noreferrer" aria-label="Open BorneoTechies.biz in a new tab">
+          <img src="images/btechies.png" alt="Borneo Techies biz" loading="lazy">
+        </a>
+      </div>
+    </section>
 
-  </section>
-
-      <!-- profile panel -->
-  <section class="panel" aria-labelledby="websites-title">
-
-      <div class="panel-head"><h2 id="websites-title">Profiles</h2></div>
+    <!-- Profiles panel -->
+    <section class="panel" aria-labelledby="profiles-title">
+      <div class="panel-head"><h2 id="profiles-title">Profiles</h2></div>
       <div class="app-grid" role="list">
-        
-        <a class="app-card" role="listitem" href="https://www.linkedin.com/in/aizuddin-asman/" target="_blank" rel="noopener noreferrer">
-          <img src="images/linkedin.png" alt="linkedin logo" loading="lazy">
+        <a class="app-card" role="listitem" href="https://www.linkedin.com/in/aizuddin-asman/" target="_blank" rel="noopener noreferrer" aria-label="Open LinkedIn in a new tab">
+          <img src="images/linkedin.png" alt="LinkedIn" loading="lazy">
         </a>
 
-        <a class="app-card" role="listitem" href="https://www.geeksforgeeks.org/user/aizudee9vnt/" target="_blank" rel="noopener noreferrer">
-          <img src="images/geek4geek.png" alt="g4g logo" loading="lazy">
+        <a class="app-card" role="listitem" href="https://www.geeksforgeeks.org/user/aizudee9vnt/" target="_blank" rel="noopener noreferrer" aria-label="Open GeeksforGeeks profile in a new tab">
+          <img src="images/geek4geek.png" alt="GeeksforGeeks" loading="lazy">
         </a>
 
-        <a class="app-card" role="listitem" href="https://leetcode.com/u/dindi00/" target="_blank" rel="noopener noreferrer" >
-          <img src="images/leetcode.png" alt="leetcode logo" loading="lazy">
+        <a class="app-card" role="listitem" href="https://leetcode.com/u/dindi00/" target="_blank" rel="noopener noreferrer" aria-label="Open LeetCode profile in a new tab">
+          <img src="images/leetcode.png" alt="LeetCode" loading="lazy">
         </a>
 
-        <a class="app-card" role="listitem" href="https://tryhackme.com/p/DingYanZu" target="_blank" rel="noopener noreferrer">
-          <img src="images/thm.png" alt="thm logo" loading="lazy">
+        <a class="app-card" role="listitem" href="https://tryhackme.com/p/DingYanZu" target="_blank" rel="noopener noreferrer" aria-label="Open TryHackMe profile in a new tab">
+          <img src="images/thm.png" alt="TryHackMe" loading="lazy">
         </a>
 
-    <a class="app-card" role="listitem" href="https://app.hackthebox.com/profile/306334" target="_blank" rel="noopener noreferrer" >
-          <img src="images/htb.png" alt="htb logo" loading="lazy">
+        <a class="app-card" role="listitem" href="https://app.hackthebox.com/profile/306334" target="_blank" rel="noopener noreferrer" aria-label="Open Hack The Box profile in a new tab">
+          <img src="images/htb.png" alt="Hack The Box" loading="lazy">
         </a>
-
+      </div>
     </section>
 
-
-          <!-- BOT Project panel -->
-    <section class="panel" aria-labelledby="websites-title">
-     <div class="panel-head"><h2 id="websites-title">Projects with BOT</h2></div>
-     <div class="app-grid" role="list">
-      
-       <a class="app-card" role="listitem" href="https://github.com/dindi00/TG_BOTREMINDER_PUBLIC/tree/main" target="_blank" rel="noopener noreferrer" >
-          <img src="images/botreminder.png" alt="tgbot logo" loading="lazy">
+    <!-- BOT Project panel -->
+    <section class="panel" aria-labelledby="bot-title">
+      <div class="panel-head"><h2 id="bot-title">Projects with BOT</h2></div>
+      <div class="app-grid" role="list">
+        <a class="app-card" role="listitem" href="https://github.com/dindi00/TG_BOTREMINDER_PUBLIC/tree/main" target="_blank" rel="noopener noreferrer" aria-label="Open Telegram Bot Reminder repo in a new tab">
+          <img src="images/botreminder.png" alt="TG Bot Reminder" loading="lazy">
         </a>
-
-       </section>
-    
-      <!-- prototype panel -->
-    <section class="panel" aria-labelledby="websites-title">
-     <div class="panel-head"><h2 id="websites-title">Projects</h2></div>
-     <div class="app-grid" role="list">
-
-
-    <a class="app-card" role="listitem" href="https://www.figma.com/proto/20GtDfb2JAmOZnNhXR6Qbh/EduKonet?node-id=1-1645&starting-point-node-id=1%3A1645&t=7kYrBaGKNNV645ap-1" target="_blank" rel="noopener noreferrer">
-    <img src="images/EduKonet.png" alt="figma logo" loading="lazy">
-    </a>
-
-    <a class="app-card" role="listitem" href="https://drive.google.com/file/d/1GyY_PfrReOBn_Vzq9PWpysME0NYm46ps/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-    <img src="images/Microbot.png" alt="Microbot logo" loading="lazy">
-    </a>
-
-    <a class="app-card" role="listitem" target="_blank" rel="noopener noreferrer">
-    <img src="images/FinancialApp.png" alt="Financial logo" loading="lazy">
-    </a>
-
-    <a class="app-card" role="listitem"  target="_blank" rel="noopener noreferrer">
-    <img src="images/smartfishing.png" alt="SmartFishing logo" loading="lazy">
-    </a>
-
-    <a class="app-card" role="listitem" href="https://drive.google.com/file/d/1HLWQHCC_ZO5PLjREOQvud5mMqezi95_s/view?usp=sharing" target="_blank" rel="noopener noreferrer" >
-    <img src="images/iotunmanned.png" alt="IOTFYP logo" loading="lazy">
-    </a>
-
-    <a class="app-card" role="listitem" href="https://dindi00.github.io/" target="_blank" rel="noopener noreferrer" >
-    <img src="images/pos_system.png" alt="POS logo" loading="lazy">
-    </a>
-
-    <a class="app-card" role="listitem" href="https://ener-g.streamlit.app/" target="_blank" rel="noopener noreferrer" >
-    <img src="images/energ.png" alt="energ logo" loading="lazy">
-    </a>
-
-    <a class="app-card" role="listitem" href="https://searoute.streamlit.app/" target="_blank" rel="noopener noreferrer" >
-    <img src="images/searoute.png" alt="searoute logo" loading="lazy">
-    </a>
-
+      </div>
     </section>
 
+    <!-- Projects panel -->
+    <section class="panel" aria-labelledby="projects-title">
+      <div class="panel-head"><h2 id="projects-title">Projects</h2></div>
+      <div class="app-grid" role="list">
+        <a class="app-card" role="listitem" href="https://www.figma.com/proto/20GtDfb2JAmOZnNhXR6Qbh/EduKonet?node-id=1-1645&starting-point-node-id=1%3A1645&t=7kYrBaGKNNV645ap-1"
+           target="_blank" rel="noopener noreferrer" aria-label="Open EduKonet Figma prototype in a new tab">
+          <img src="images/EduKonet.png" alt="EduKonet" loading="lazy">
+        </a>
 
+        <a class="app-card" role="listitem" href="https://drive.google.com/file/d/1GyY_PfrReOBn_Vzq9PWpysME0NYm46ps/view?usp=drive_link"
+           target="_blank" rel="noopener noreferrer" aria-label="Open Microbot file in a new tab">
+          <img src="images/Microbot.png" alt="Microbot" loading="lazy">
+        </a>
 
+        <!-- Placeholder links (add href when ready) -->
+        <a class="app-card" role="listitem" href="#" aria-label="Financial App (link coming soon)">
+          <img src="images/FinancialApp.png" alt="Financial App" loading="lazy">
+        </a>
+
+        <a class="app-card" role="listitem" href="#" aria-label="SmartFishing (link coming soon)">
+          <img src="images/smartfishing.png" alt="SmartFishing" loading="lazy">
+        </a>
+
+        <a class="app-card" role="listitem" href="https://drive.google.com/file/d/1HLWQHCC_ZO5PLjREOQvud5mMqezi95_s/view?usp=sharing"
+           target="_blank" rel="noopener noreferrer" aria-label="Open IoT Unmanned Retail Store file in a new tab">
+          <img src="images/iotunmanned.png" alt="IoT Unmanned Retail Store" loading="lazy">
+        </a>
+
+        <a class="app-card" role="listitem" href="https://dindi00.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Open POS System site in a new tab">
+          <img src="images/pos_system.png" alt="POS System" loading="lazy">
+        </a>
+
+        <a class="app-card" role="listitem" href="https://ener-g.streamlit.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Ener-G Streamlit app in a new tab">
+          <img src="images/energ.png" alt="Ener-G" loading="lazy">
+        </a>
+
+        <a class="app-card" role="listitem" href="https://searoute.streamlit.app/" target="_blank" rel="noopener noreferrer" aria-label="Open SeaRoute Streamlit app in a new tab">
+          <img src="images/searoute.png" alt="SeaRoute" loading="lazy">
+        </a>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -250,17 +262,21 @@
     // Splash → reveal
     const splash = document.getElementById('splash');
     const page = document.getElementById('page');
+
     const hideSplash = () => {
       if (!splash.classList.contains('hide')) {
         splash.classList.add('hide');
         setTimeout(() => page.classList.add('show'), 200);
       }
     };
+
     window.addEventListener('load', () => setTimeout(hideSplash, 1200));
     splash.addEventListener('click', hideSplash);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') hideSplash(); });
+
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      splash.style.animation = 'none'; hideSplash();
+      splash.style.animation = 'none';
+      hideSplash();
     }
   </script>
 </body>
